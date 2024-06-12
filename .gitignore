@@ -3,3 +3,8 @@
 ################################################################################
 
 /API.FurnitureStore/.vs
+/API.FurnitureStore/API.FurnitureStore.Models/obj/Debug/net6.0
+/API.FurnitureStore/API.FurnitureStore.Models/obj
+/API.FurnitureStore/API.FurnitureStore.API/obj/Debug/net6.0/API.FurnitureStore.API.AssemblyInfo.cs
+/API.FurnitureStore/API.FurnitureStore.API/obj/Debug/net6.0/API.FurnitureStore.API.AssemblyInfoInputs.cache
+/API.FurnitureStore/API.FurnitureStore.sln
