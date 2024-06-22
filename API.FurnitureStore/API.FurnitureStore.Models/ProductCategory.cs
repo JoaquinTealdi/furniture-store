@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace API.FurnitureStore.Models
 {
-    internal class ProductCategory
+    public class ProductCategory
     {
+        public int Id{ get; set; }
+        public string Name{ get; set; }
     }
 }
