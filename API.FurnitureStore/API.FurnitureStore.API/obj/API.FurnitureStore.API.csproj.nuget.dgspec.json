@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj": {}
+    "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj": {}
   },
   "projects": {
-    "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj": {
+    "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj",
+        "projectUniqueName": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj",
         "projectName": "API.FurnitureStore.API",
-        "projectPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj",
-        "packagesPath": "C:\\Users\\joa\\.nuget\\packages\\",
-        "outputPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\obj\\",
+        "projectPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\API.FurnitureStore.API.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\joa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj": {
-                "projectPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj"
+              "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj": {
+                "projectPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj"
               },
-              "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj": {
-                "projectPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj"
+              "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj": {
+                "projectPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj"
               }
             }
           }
@@ -52,6 +57,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.31, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.31, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -76,21 +93,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj": {
+    "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj",
+        "projectUniqueName": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj",
         "projectName": "API.FurnitureStore.Data",
-        "projectPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj",
-        "packagesPath": "C:\\Users\\joa\\.nuget\\packages\\",
-        "outputPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\obj\\",
+        "projectPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\API.FurnitureStore.Data.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\joa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,14 +119,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj": {
-                "projectPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj"
+              "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj": {
+                "projectPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj"
               }
             }
           }
@@ -162,21 +184,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj": {
+    "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj",
+        "projectUniqueName": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj",
         "projectName": "API.FurnitureStore.Models",
-        "projectPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj",
-        "packagesPath": "C:\\Users\\joa\\.nuget\\packages\\",
-        "outputPath": "K:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\obj\\",
+        "projectPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\API.FurnitureStore.Models.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "F:\\Dev\\Proyectos en GitHub\\C#\\CursoBackUdemy\\furniture-store\\API.FurnitureStore\\API.FurnitureStore.Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\joa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -184,6 +210,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -222,7 +249,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

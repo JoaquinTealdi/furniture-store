@@ -1,3 +1,4 @@
+using API.FurnitureStore.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.FurnitureStore.API.Controllers
