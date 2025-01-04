@@ -1,0 +1,107 @@
+[
+  {
+    "ContainingType": "API.FurnitureStore.API.Controllers.ClientsController",
+    "Method": "Create",
+    "RelativePath": "api/Clients/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "client",
+        "Type": "API.FurnitureStore.Models.Client",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.FurnitureStore.API.Controllers.ClientsController",
+    "Method": "DeleteClient",
+    "RelativePath": "api/Clients/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.FurnitureStore.API.Controllers.ClientsController",
+    "Method": "EditClient",
+    "RelativePath": "api/Clients/Edit",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "client",
+        "Type": "API.FurnitureStore.Models.Client",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.FurnitureStore.API.Controllers.ClientsController",
+    "Method": "GetClients",
+    "RelativePath": "api/Clients/Get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[API.FurnitureStore.Models.Client, API.FurnitureStore.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.FurnitureStore.API.Controllers.ClientsController",
+    "Method": "GetById",
+    "RelativePath": "api/Clients/Get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.FurnitureStore.API.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "api/WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[API.FurnitureStore.API.WeatherForecast, API.FurnitureStore.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

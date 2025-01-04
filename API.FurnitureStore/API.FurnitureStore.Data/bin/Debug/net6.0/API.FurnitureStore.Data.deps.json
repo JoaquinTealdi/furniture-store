@@ -409,7 +409,10 @@
       },
       "API.FurnitureStore.Models/1.0.0": {
         "runtime": {
-          "API.FurnitureStore.Models.dll": {}
+          "API.FurnitureStore.Models.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

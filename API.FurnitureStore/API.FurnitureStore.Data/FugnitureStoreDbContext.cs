@@ -8,10 +8,10 @@ namespace API.FurnitureStore.Data
         public FugnitureStoreDbContext(DbContextOptions options) : base(options) { }
 
 
-        DbSet<Client> Clients { get; set; }
-        DbSet<Order> Orders { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -417,12 +417,18 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.31"
         },
         "runtime": {
-          "API.FurnitureStore.Data.dll": {}
+          "API.FurnitureStore.Data.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "API.FurnitureStore.Models/1.0.0": {
         "runtime": {
-          "API.FurnitureStore.Models.dll": {}
+          "API.FurnitureStore.Models.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

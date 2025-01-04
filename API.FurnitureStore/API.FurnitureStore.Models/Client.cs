@@ -13,6 +13,6 @@ namespace API.FurnitureStore.Models
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string PhoneNumber { get; set; }
-        public int Address { get; set; }
+        public string Address { get; set; }
     }
 }

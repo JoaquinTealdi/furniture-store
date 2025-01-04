@@ -144,3 +144,7 @@ F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\
 F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\obj\Debug\net6.0\API.FurnitureStore.API.pdb
 F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\obj\Debug\net6.0\API.FurnitureStore.API.genruntimeconfig.cache
 F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\obj\Debug\net6.0\ref\API.FurnitureStore.API.dll
+F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\bin\Debug\net6.0\API.FurnitureStore.API.staticwebassets.endpoints.json
+F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\obj\Debug\net6.0\staticwebassets\msbuild.API.FurnitureStore.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+F:\Dev\Proyectos en GitHub\C#\CursoBackUdemy\furniture-store\API.FurnitureStore\API.FurnitureStore.API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
