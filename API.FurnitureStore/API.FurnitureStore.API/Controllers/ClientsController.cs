@@ -1,5 +1,7 @@
 ﻿using API.FurnitureStore.Data;
 using API.FurnitureStore.Models;
+using API.FurnitureStore.Models.Dtos;
+using API.FurnitureStore.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,23 +12,24 @@ namespace API.FurnitureStore.API.Controllers
     [ApiController]
     public class ClientsController : ControllerBase
     {
-        private readonly FugnitureStoreDbContext _context;
+        private readonly IClientsService _service;
 
-        public ClientsController(FugnitureStoreDbContext context)
+        public ClientsController(IClientsService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet("Get")]
-        public async Task<IEnumerable<Client>> GetClients()
+        public async Task<IActionResult> Get()
         {
-            return await _context.Clients.ToListAsync();
+            var result = await _service.GetClients();
+            return Ok(result);
         }
 
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var client = await _context.Clients.FirstOrDefaultAsync(x => x.Id == id);
+            var client = await _service.GetClientById(id);
 
             if (client == null)
             {
@@ -37,39 +40,53 @@ namespace API.FurnitureStore.API.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create(Client client)
+        public async Task<IActionResult> Create(CreateClientDto client)
         {
-            await _context.Clients.AddAsync(client);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            return CreatedAtAction("Create", client.Id, client);
+            var result = await _service.CreateClient(client);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Created(result.Message, null);
         }
 
         [HttpPut("Edit")]
-        public async Task<IActionResult> EditClient(Client client)
+        public async Task<IActionResult> Edit(EditClientDto client)
         {
-            _context.Clients.Update(client);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _service.EditClient(client);
+
+            if (!result.Success)
+            {
+                return BadRequest($"{result.Message}");
+            }
 
             return NoContent();
         }
 
 
         [HttpDelete("Delete/{id}")]
-        public async Task<IActionResult> DeleteClient(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var client = _context.Clients.FirstOrDefault(x => x.Id == id);
+            var result = await _service.DeleteClient(id);
 
-            if (client == null)
+            if (!result.Success)
             {
-                return NotFound();
+                return BadRequest($"{result.Message}");
             }
 
-            _context.Clients.Remove(client);
-
-            await _context.SaveChangesAsync();
-
-            return Ok();
+            return Ok($"{result.Message}");
         }
     }
 }
