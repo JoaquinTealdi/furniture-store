@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\API.FurnitureStore.Data\API.FurnitureStore.Data.csproj" />
+    <ProjectReference Include="..\API.FurnitureStore.Models\API.FurnitureStore.Models.csproj" />
+  </ItemGroup>
+
+</Project>
