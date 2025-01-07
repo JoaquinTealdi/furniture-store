@@ -19,8 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\API.FurnitureStore.Data\API.FurnitureStore.Data.csproj" />
-    <ProjectReference Include="..\API.FurnitureStore.Models\API.FurnitureStore.Models.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\API.FurnitureStore.Services.csproj" />
   </ItemGroup>
 
 </Project>
