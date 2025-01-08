@@ -1,10 +1,6 @@
-﻿using API.FurnitureStore.Data;
-using API.FurnitureStore.Models;
-using API.FurnitureStore.Models.Dtos;
+﻿using API.FurnitureStore.Models.Dtos;
 using API.FurnitureStore.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.FurnitureStore.API.Controllers
 {

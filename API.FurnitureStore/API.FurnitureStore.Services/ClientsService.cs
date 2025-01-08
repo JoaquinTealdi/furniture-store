@@ -3,11 +3,6 @@ using API.FurnitureStore.Models;
 using API.FurnitureStore.Models.Dtos;
 using API.FurnitureStore.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API.FurnitureStore.Services
 {
@@ -45,7 +40,7 @@ namespace API.FurnitureStore.Services
                     PhoneNumber = client.PhoneNumber,
                     Address = client.Address
                 };
-                
+
                 #endregion
 
 

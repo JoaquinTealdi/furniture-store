@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\API.FurnitureStore.Services.csproj" />
+    <ProjectReference Include="..\API.FurnitureStore.Services\API.FurnitureStore.Services.csproj" />
   </ItemGroup>
 
 </Project>

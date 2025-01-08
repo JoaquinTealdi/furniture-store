@@ -45,3 +45,6 @@
 /API.FurnitureStore/ClassLibrary1/bin/Debug/net6.0
 /API.FurnitureStore/API.FurnitureStore.Services/bin/Debug/net6.0
 /API.FurnitureStore/API.FurnitureStore.Services/obj
+/API.FurnitureStore/API.FurnitureStore.API/FurnitureStore.Db
+/API.FurnitureStore/API.FurnitureStore.API/FurnitureStore.Db-shm
+/API.FurnitureStore/API.FurnitureStore.API/FurnitureStore.Db-wal
