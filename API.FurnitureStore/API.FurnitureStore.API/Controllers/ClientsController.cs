@@ -15,14 +15,14 @@ namespace API.FurnitureStore.API.Controllers
             _service = service;
         }
 
-        [HttpGet("Get")]
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
             var result = await _service.GetClients();
             return Ok(result);
         }
 
-        [HttpGet("Get/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var client = await _service.GetClientById(id);
@@ -35,7 +35,7 @@ namespace API.FurnitureStore.API.Controllers
             return Ok(client);
         }
 
-        [HttpPost("Create")]
+        [HttpPost]
         public async Task<IActionResult> Create(CreateClientDto client)
         {
             if (!ModelState.IsValid)
@@ -50,10 +50,10 @@ namespace API.FurnitureStore.API.Controllers
                 return BadRequest(result.Message);
             }
 
-            return Created(result.Message, null);
+            return CreatedAtAction(nameof(GetById), new { id = result.ResourceId }, null);
         }
 
-        [HttpPut("Edit")]
+        [HttpPut]
         public async Task<IActionResult> Edit(EditClientDto client)
         {
             if (!ModelState.IsValid)
@@ -65,24 +65,24 @@ namespace API.FurnitureStore.API.Controllers
 
             if (!result.Success)
             {
-                return BadRequest($"{result.Message}");
+                return BadRequest(result.Message);
             }
 
             return NoContent();
         }
 
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _service.DeleteClient(id);
 
             if (!result.Success)
             {
-                return BadRequest($"{result.Message}");
+                return BadRequest(result.Message);
             }
 
-            return Ok($"{result.Message}");
+            return Ok(result.Message);
         }
     }
 }

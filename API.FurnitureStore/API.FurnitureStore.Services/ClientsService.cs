@@ -52,6 +52,7 @@ namespace API.FurnitureStore.Services
                 {
                     response.Success = true;
                     response.Message = "Client successfully created.";
+                    response.ResourceId = newClient.Id;
                 }
                 else
                 {
@@ -76,7 +77,7 @@ namespace API.FurnitureStore.Services
                 if (clientExists == null)
                 {
                     response.Success = false;
-                    response.Message = "Client Not Found";
+                    response.Message = "Client Not Found.";
 
                     return response;
                 }
@@ -120,7 +121,7 @@ namespace API.FurnitureStore.Services
                 if (client == null)
                 {
                     response.Success = false;
-                    response.Message = "Client Not Found";
+                    response.Message = "Client Not Found.";
 
                     return response;
                 }
