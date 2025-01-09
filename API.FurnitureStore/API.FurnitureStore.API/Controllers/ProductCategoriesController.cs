@@ -11,11 +11,11 @@ namespace API.FurnitureStore.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductCategoryController : ControllerBase
+    public class ProductCategoriesController : ControllerBase
     {
         private readonly IProductCategoryService _service;
 
-        public ProductCategoryController(IProductCategoryService service)
+        public ProductCategoriesController(IProductCategoryService service)
         {
             _service = service;
         }
