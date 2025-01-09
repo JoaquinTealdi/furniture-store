@@ -10,5 +10,6 @@ namespace API.FurnitureStore.Models
     {
         public bool Success { get; set; }
         public string Message { get; set; }
+        public int ResourceId { get; set; }
     }
 }
