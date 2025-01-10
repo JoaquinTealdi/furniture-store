@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.FurnitureStore.Models.Dtos
+namespace API.FurnitureStore.Models.Dtos.ProductCategory
 {
-    public class EditProductCategoryDto
+    public class CreateProductCategoryDto
     {
         [Required]
-        public int Id { get; set; }
-        [Required]
+        [MaxLength(20)]
         public string Name { get; set; }
     }
 }

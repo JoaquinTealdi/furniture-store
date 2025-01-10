@@ -5,16 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.FurnitureStore.Models.Dtos
+namespace API.FurnitureStore.Models.Dtos.Client
 {
-    public class EditClientDto
+    public class CreateClientDto
     {
         [Required]
-        public int Id { get; set; }
+        [MaxLength(20)]
         public string FirstName { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string LastName { get; set; }
-        public DateTime? BirthDate { get; set; }
+        [Required]
+        public DateTime BirthDate { get; set; }
+        [Required]
+        [MaxLength(10)]
         public string PhoneNumber { get; set; }
+        [Required]
+        [MaxLength(100)]
         public string Address { get; set; }
     }
 }
