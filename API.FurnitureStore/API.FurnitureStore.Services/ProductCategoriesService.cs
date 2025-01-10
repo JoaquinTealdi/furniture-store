@@ -1,6 +1,6 @@
 ﻿using API.FurnitureStore.Data;
 using API.FurnitureStore.Models;
-using API.FurnitureStore.Models.Dtos;
+using API.FurnitureStore.Models.Dtos.ProductCategory;
 using API.FurnitureStore.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace API.FurnitureStore.Services
 {
-    public class ProductCategoryService : IProductCategoryService
+    public class ProductCategoriesService : IProductCategoriesService
     {
         private readonly FugnitureStoreDbContext _context;
 
-        public ProductCategoryService(FugnitureStoreDbContext context)
+        public ProductCategoriesService(FugnitureStoreDbContext context)
         {
             _context = context;
         }

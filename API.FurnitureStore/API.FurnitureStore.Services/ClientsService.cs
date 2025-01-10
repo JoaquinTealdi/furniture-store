@@ -1,6 +1,6 @@
 ﻿using API.FurnitureStore.Data;
 using API.FurnitureStore.Models;
-using API.FurnitureStore.Models.Dtos;
+using API.FurnitureStore.Models.Dtos.Client;
 using API.FurnitureStore.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

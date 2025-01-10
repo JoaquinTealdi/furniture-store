@@ -1,6 +1,6 @@
 ﻿using API.FurnitureStore.Data;
 using API.FurnitureStore.Models;
-using API.FurnitureStore.Models.Dtos;
+using API.FurnitureStore.Models.Dtos.ProductCategory;
 using API.FurnitureStore.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +13,9 @@ namespace API.FurnitureStore.API.Controllers
     [ApiController]
     public class ProductCategoriesController : ControllerBase
     {
-        private readonly IProductCategoryService _service;
+        private readonly IProductCategoriesService _service;
 
-        public ProductCategoriesController(IProductCategoryService service)
+        public ProductCategoriesController(IProductCategoriesService service)
         {
             _service = service;
         }

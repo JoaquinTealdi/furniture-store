@@ -1,5 +1,5 @@
 ﻿using API.FurnitureStore.Models;
-using API.FurnitureStore.Models.Dtos;
+using API.FurnitureStore.Models.Dtos.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;

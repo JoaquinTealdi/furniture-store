@@ -1,4 +1,4 @@
-﻿using API.FurnitureStore.Models.Dtos;
+﻿using API.FurnitureStore.Models.Dtos.Client;
 using API.FurnitureStore.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
