@@ -10,18 +10,21 @@ namespace API.FurnitureStore.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductsService _service;
+        private readonly IProductCategoriesService _productCategoriesService;
 
-        public ProductsController(IProductsService service)
+        public ProductsController(IProductsService service, IProductCategoriesService productCategoriesService)
         {
             _service = service;
+            _productCategoriesService = productCategoriesService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get() { 
-        
+        public async Task<IActionResult> Get()
+        {
+
             var products = await _service.GetProducts();
 
-            return Ok(products);          
+            return Ok(products);
         }
 
         [HttpGet("{id}")]
@@ -35,6 +38,21 @@ namespace API.FurnitureStore.API.Controllers
             }
 
             return Ok(product);
+        }
+
+        [HttpGet("GetByCategoryId/{productCategoryId}")]
+        public async Task<IActionResult> GetByCategoryId(int productCategoryId)
+        {
+            var categoryExists = await _productCategoriesService.GetProductCategoryById(productCategoryId);
+
+            if (categoryExists == null)
+            {
+                return NotFound("Product Category does not exists");
+            }
+
+            var productsByCategory = await _service.GetProductByCategoryId(productCategoryId);
+
+            return Ok(productsByCategory);
         }
 
         [HttpPost]

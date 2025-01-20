@@ -30,6 +30,13 @@ namespace API.FurnitureStore.Services
             return await _context.Products.FindAsync(id);
         }
 
+        public async Task<IEnumerable<Product>> GetProductByCategoryId(int categoryId)
+        {
+            var products = await _context.Products.Where(x => x.ProductCategoryId == categoryId).ToListAsync();
+         
+            return products;
+        }
+
         public async Task<OperationResult> CreateProduct(CreateProductDto product)
         {
             try

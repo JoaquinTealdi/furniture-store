@@ -12,6 +12,7 @@ namespace API.FurnitureStore.Services.Interfaces
     {
         Task<IEnumerable<Product>> GetProducts();
         Task<Product?> GetProductById(int id);
+        Task<IEnumerable<Product>> GetProductByCategoryId(int categoryId);
         Task<OperationResult> CreateProduct(CreateProductDto product);
         Task<OperationResult> EditProduct(EditProductDto product);
         Task<OperationResult> DeleteProduct(int id);
