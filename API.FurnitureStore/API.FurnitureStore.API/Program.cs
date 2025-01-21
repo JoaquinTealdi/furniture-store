@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IClientsService, ClientsService>();   
 builder.Services.AddTransient<IProductCategoriesService, ProductCategoriesService>();   
 builder.Services.AddTransient<IProductsService, ProductsService>();   
+builder.Services.AddTransient<IOrdersService, OrdersService>();   
 
 builder.Services.AddDbContext<FugnitureStoreDbContext>(options =>
         options.UseSqlite(builder.Configuration.GetConnectionString("FurnitureConnection")));
