@@ -19,6 +19,6 @@ namespace API.FurnitureStore.Models.Dtos.Order
         public DateTime OrderDate { get; set; }
         [Required]
         public DateTime DeliveryDate { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<OrderDetailRequest> OrderDetails { get; set; }
     }
 }

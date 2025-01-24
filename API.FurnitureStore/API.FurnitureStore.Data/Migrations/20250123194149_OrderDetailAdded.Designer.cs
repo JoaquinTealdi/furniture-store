@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.FurnitureStore.Data.Migrations
 {
     [DbContext(typeof(FugnitureStoreDbContext))]
-    [Migration("20250120201118_add Order Details")]
-    partial class addOrderDetails
+    [Migration("20250123194149_OrderDetailAdded")]
+    partial class OrderDetailAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,7 +74,8 @@ namespace API.FurnitureStore.Data.Migrations
 
             modelBuilder.Entity("API.FurnitureStore.Models.OrderDetail", b =>
                 {
-                    b.Property<int>("OrderId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ProductId")
@@ -83,7 +84,7 @@ namespace API.FurnitureStore.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("OrderId", "ProductId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
@@ -128,27 +129,13 @@ namespace API.FurnitureStore.Data.Migrations
 
             modelBuilder.Entity("API.FurnitureStore.Models.OrderDetail", b =>
                 {
-                    b.HasOne("API.FurnitureStore.Models.Order", null)
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("API.FurnitureStore.Models.Product", null)
-                        .WithMany("OrderDetails")
+                    b.HasOne("API.FurnitureStore.Models.Product", "Product")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("API.FurnitureStore.Models.Order", b =>
-                {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("API.FurnitureStore.Models.Product", b =>
-                {
-                    b.Navigation("OrderDetails");
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

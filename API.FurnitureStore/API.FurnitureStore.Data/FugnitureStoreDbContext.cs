@@ -19,17 +19,5 @@ namespace API.FurnitureStore.Data
             optionsBuilder.UseSqlite();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-
-            modelBuilder.Entity<OrderDetail>()
-                .HasKey(od => new { od.OrderId, od.ProductId });
-
-        }
-
-
-
     }
 }
