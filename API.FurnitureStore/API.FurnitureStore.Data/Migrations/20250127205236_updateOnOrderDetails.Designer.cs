@@ -3,6 +3,7 @@ using System;
 using API.FurnitureStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.FurnitureStore.Data.Migrations
 {
     [DbContext(typeof(FugnitureStoreDbContext))]
-    partial class FugnitureStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250127205236_updateOnOrderDetails")]
+    partial class updateOnOrderDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.31");
