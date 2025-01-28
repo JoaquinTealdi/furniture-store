@@ -11,10 +11,10 @@ namespace API.FurnitureStore.Services.Interfaces
 {
     public interface IOrdersService
     {
-        Task<IEnumerable<Order>> GetOrders();
-        Task<Order?> GetOrderById(int id);
+        Task<IEnumerable<OrderDto>> GetOrders();
+        Task<OrderDto?> GetOrderById(int id);
         Task<OperationResult> CreateOrder(CreateOrderDto order);
-        Task<OperationResult> EditOrder(EditOrderDto order);
+        Task<OperationResult> EditOrder(OrderDto order);
         Task<OperationResult> DeleteOrder(int id);
     }
 }

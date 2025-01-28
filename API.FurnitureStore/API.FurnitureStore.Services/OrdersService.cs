@@ -20,70 +20,223 @@ namespace API.FurnitureStore.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Order>> GetOrders()
+        public async Task<IEnumerable<OrderDto>> GetOrders()
         {
-            return await _context.Orders.Include(x => x.OrderDetails).ToListAsync();
+            return _context.Orders.Include(x => x.OrderDetails)
+                                    .Select(x => new OrderDto
+                                    {
+                                        Id = x.Id,
+                                        OrderDate = x.OrderDate,
+                                        DeliveryDate = x.DeliveryDate,
+                                        ClientId = x.ClientId,
+                                        OrderNumber = x.OrderNumber,
+                                        OrderDetailsRequest = x.OrderDetails.Select(od =>
+                                            new OrderDetailRequest
+                                            {
+                                                ProductId = od.Product.Id,
+                                                Quantity = od.Quantity
+                                            }).ToList()
+                                    }).ToList();
+                
         }
-        public async Task<Order?> GetOrderById(int id)
+        public async Task<OrderDto?> GetOrderById(int id)
         {
             return await _context.Orders.Include(x => x.OrderDetails)
-                            .Where(x => x.Id == id).FirstOrDefaultAsync();
+                            .Where(x => x.Id == id).Select(
+                             x=> new OrderDto
+                             {
+                                 Id = x.Id,
+                                 OrderDate = x.OrderDate,
+                                 DeliveryDate = x.DeliveryDate,
+                                 ClientId = x.ClientId,
+                                 OrderNumber = x.OrderNumber,
+                                 OrderDetailsRequest = x.OrderDetails.Select(od =>
+                                     new OrderDetailRequest
+                                     {
+                                         ProductId = od.Product.Id,
+                                         Quantity = od.Quantity
+                                     }).ToList()
+                             }).FirstOrDefaultAsync();
         }
 
 
         public async Task<OperationResult> CreateOrder(CreateOrderDto order)
         {
-            var response = new OperationResult();
-            var client = await _context.Clients.FindAsync(order.ClientId);
-
-            if (order.OrderDetails == null)
+            try
             {
+                var response = new OperationResult();
+
+                if (order == null)
+                {
+                    response.Success = false;
+                    response.Message = "The order can not be null.";
+                    return response;
+                }
+
+                if (order.OrderDetailsRequest == null || !order.OrderDetailsRequest.Any())
+                {
+                    response.Success = false;
+                    response.Message = "The order must have at least one order detail.";
+                    return response;
+                }
+
+                var client = await _context.Clients.FindAsync(order.ClientId);
+
+                if (client == null)
+                {
+                    response.Success = false;
+                    response.Message = "Client does not exists.";
+                    return response;
+                }
+
+                var newOrder = new Order
+                {
+                    OrderNumber = order.OrderNumber,
+                    ClientId = order.ClientId,
+                    OrderDate = order.OrderDate,
+                    DeliveryDate = order.DeliveryDate
+                };
+
+                foreach (var item in order.OrderDetailsRequest)
+                {
+
+                    var product = await _context.Products.FindAsync(item.ProductId);
+
+                    if (product == null)
+                    {
+                        response.Success = false;
+                        response.Message = "Product does not exists.";
+                        return response;
+                    }
+
+                    var newOrderDetail = new OrderDetail
+                    {
+                        Product = product,
+                        Quantity = item.Quantity,
+                    };
+
+                    newOrder.OrderDetails.Add(newOrderDetail);
+                }
+
+                await _context.Orders.AddAsync(newOrder);
+                var result = await _context.SaveChangesAsync();
+
+                if (result > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Order successfully created.";
+                    response.ResourceId = newOrder.Id;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Order could not be created.";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var response = new OperationResult();
                 response.Success = false;
-                response.Message = "The order must have at least one order detail";
+                response.Message = $"Error: {ex.Message}";
+
                 return response;
             }
 
-            if (client == null)
-            {
-                response.Success = false;
-                response.Message = "Client does not exists";
-                return response;
-
-            }
-
-            var newOrder = new Order
-            {
-                ClientId = client.Id,
-                OrderDate = order.OrderDate,
-                DeliveryDate = order.DeliveryDate,
-                OrderNumber = order.OrderNumber,
-            };
-
-            _context.Orders.AddAsync(newOrder);
-            _context.OrderDetails.AddRangeAsync(order.OrderDetails);
-
-            var result = await _context.SaveChangesAsync();
-
-            if (result > 0)
-            {
-                response.Success = true;
-                response.Message = "Order successfully created.";
-                response.ResourceId = newOrder.Id;
-            }
-            else
-            {
-                response.Success = false;
-                response.Message = "Order could not be created.";
-            }
-
-            return response;
         }
 
-        public async Task<OperationResult> EditOrder(EditOrderDto order)
+        public async Task<OperationResult> EditOrder(OrderDto order)
+        {
+            try
+            {
+                var response = new OperationResult();
+                var existingOrder = await _context.Orders.FindAsync(order.Id);
+                var client = await _context.Clients.FindAsync(order.ClientId);
+
+                if (existingOrder == null)
+                {
+                    response.Success = false;
+                    response.Message = "Order does not exists.";
+                    return response;
+                }
+
+                if (order.OrderDetailsRequest == null)
+                {
+                    response.Success = false;
+                    response.Message = "The order must have at least one order detail.";
+                    return response;
+                }
+
+                if (client == null)
+                {
+                    response.Success = false;
+                    response.Message = "Client does not exists.";
+                    return response;
+                }
+
+                existingOrder.OrderDetails.Clear();
+                var odToDelete = await _context.OrderDetails.Where(x=> x.OrderId == existingOrder.Id).ToListAsync();
+                _context.OrderDetails.RemoveRange(odToDelete);
+
+
+                existingOrder.OrderNumber = order.OrderNumber;
+                existingOrder.OrderDate = order.OrderDate;
+                existingOrder.DeliveryDate = order.DeliveryDate;
+                existingOrder.ClientId = order.ClientId;
+
+
+                foreach (var item in order.OrderDetailsRequest)
+                {
+
+                    var product = await _context.Products.FindAsync(item.ProductId);
+
+                    if (product == null)
+                    {
+                        response.Success = false;
+                        response.Message = "Product does not exists.";
+                        return response;
+                    }
+
+                    var newOrderDetail = new OrderDetail
+                    {
+                        Product = product,
+                        Quantity = item.Quantity,
+                    };
+
+                    existingOrder.OrderDetails.Add(newOrderDetail);
+                }
+
+                _context.Orders.Update(existingOrder);
+                var result = await _context.SaveChangesAsync();
+
+                if (result > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Order successfully updated.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Order could not be updated.";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var response = new OperationResult();
+                response.Success = false;
+                response.Message = $"Error: {ex.Message}";
+
+                return response;
+            }
+        }
+
+        public async Task<OperationResult> DeleteOrder(int id)
         {
             var response = new OperationResult();
-            var existingOrder = await _context.Orders.FindAsync(order.Id);
-            var client = await _context.Clients.FindAsync(order.ClientId);
+            var existingOrder = await _context.Orders.Include(x=> x.OrderDetails).FirstOrDefaultAsync(x=> x.Id == id);
 
             if (existingOrder == null)
             {
@@ -92,63 +245,8 @@ namespace API.FurnitureStore.Services
                 return response;
             }
 
-            if (order.OrderDetails == null)
-            {
-                response.Success = false;
-                response.Message = "The order must have at least one order detail.";
-                return response;
-            }
-
-            if (client == null)
-            {
-                response.Success = false;
-                response.Message = "Client does not exists.";
-                return response;
-
-            }
-
-            existingOrder.OrderNumber = order.OrderNumber;
-            existingOrder.OrderDate = order.OrderDate;
-            existingOrder.DeliveryDate = order.DeliveryDate;
-            existingOrder.ClientId = order.ClientId;
-
-            _context.OrderDetails.RemoveRange(existingOrder.OrderDetails);
-
-            _context.Orders.Update(existingOrder);
-
-            _context.OrderDetails.AddRangeAsync(order.OrderDetails);
-
-            var result = await _context.SaveChangesAsync();
-
-            if (result > 0)
-            {
-                response.Success = true;
-                response.Message = "Order successfully updated.";
-                response.ResourceId = existingOrder.Id;
-            }
-            else
-            {
-                response.Success = false;
-                response.Message = "Order could not be updated.";
-            }
-
-            return response;
-        }
-
-        public async Task<OperationResult> DeleteOrder(int id)
-        {
-            var response = new OperationResult();
-            var orderExists = await _context.Orders.FindAsync(id);
-
-            if (orderExists == null)
-            {
-                response.Success = false;
-                response.Message = "Order does not exists.";
-                return response;
-            }
-
-            _context.OrderDetails.RemoveRange(orderExists.OrderDetails);
-            _context.Orders.Remove(orderExists);
+            //_context.OrderDetails.RemoveRange(existingOrder.OrderDetails);
+            _context.Orders.Remove(existingOrder);
 
             var result = await _context.SaveChangesAsync();
 
