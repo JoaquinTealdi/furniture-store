@@ -19,5 +19,14 @@ namespace API.FurnitureStore.Data
             optionsBuilder.UseSqlite();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Order)
+                .WithMany(o => o.OrderDetails)
+                .HasForeignKey(od => od.OrderId)  // Configura la relación de clave foránea
+                .OnDelete(DeleteBehavior.Cascade);      
+        }
+
     }
 }
