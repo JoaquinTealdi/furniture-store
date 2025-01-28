@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.FurnitureStore.Models.Dtos.Order
 {
-    public class EditOrderDto
+    public class OrderDto
     {
         [Required]
         public int Id { get; set; }
@@ -19,6 +19,6 @@ namespace API.FurnitureStore.Models.Dtos.Order
         public DateTime OrderDate { get; set; }
         [Required]
         public DateTime DeliveryDate { get; set; }
-        public List<OrderDetailRequest> OrderDetails { get; set; }
+        public List<OrderDetailRequest> OrderDetailsRequest { get; set; }
     }
 }
