@@ -1,9 +1,12 @@
 ﻿using API.FurnitureStore.Data;
+using API.FurnitureStore.Models;
 using API.FurnitureStore.Models.Dtos.Order;
 using API.FurnitureStore.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Net.WebSockets;
 
 namespace API.FurnitureStore.API.Controllers
 {
@@ -12,10 +15,9 @@ namespace API.FurnitureStore.API.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrdersService _service;
-
         public OrdersController(IOrdersService service)
         {
-            _service = service;
+            _service = service; 
         }
 
 
@@ -43,10 +45,10 @@ namespace API.FurnitureStore.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateOrderDto order)
         {
+                
             var result = await _service.CreateOrder(order);
 
-            if (!result.Success)
-            {
+            if (!result.Success) { 
                 return BadRequest(result.Message);
             }
 
@@ -54,10 +56,10 @@ namespace API.FurnitureStore.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Edit(EditOrderDto order)
+        public async Task<IActionResult> Edit(OrderDto order)
         {
             if (order.Id < 0)
-            {
+            {   
                 return BadRequest("Invalid id");
             }
 
